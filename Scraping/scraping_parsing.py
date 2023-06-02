@@ -6,7 +6,7 @@ constants = ikea_api.Constants(country="us", language="en")
 
 endpoint = ikea_api.get_items(constants, ["30457903"])
 
-item = await ikea_api.run_async(endpoint)
+item = ikea_api.run(endpoint)
 item_json = json.dumps(item, indent=4)
 
 print(item_json)
