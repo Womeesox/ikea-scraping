@@ -1,13 +1,11 @@
 import ikea_api, json, asyncio
 
-constants = ikea_api.Constants(country="us", language="en")
+constants = ikea_api.Constants(country="pl", language="pl")
 
-async def get_this_shit():
-    item = await ikea_api.get_items(constants, ["30457903"])
-    print(item)
+ingka_items = ikea_api.IngkaItems(constants)
+endpoint = ingka_items.get_items(["30457903"])
 
-item = asyncio.run(get_this_shit())
+ikea_api.run_async(endpoint)
+# item_json = json.dumps(item, indent=4)
 
-item_json = json.dumps(item, indent=4)
-
-print(item)
+# print(item)
